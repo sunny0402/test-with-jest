@@ -26,3 +26,6 @@ const httpMocks = require("node-mocks-http");
 
 serializes to the same string. Means same string, but different spot in memory.
 To pass test change from toBe to toStrictEqual.
+
+TypeError: app.address is not a function
+module.exports = app;

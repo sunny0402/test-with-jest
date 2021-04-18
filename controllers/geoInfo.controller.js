@@ -1,6 +1,6 @@
 const geoInfoModel = require("../model/geoInfo.model");
 exports.createGeoInfo = (req, resp, next) => {
-  //create new entry in MongoDB witht the incoming request data
+  //create new entry in MongoDB with the incoming request data
   const createdModel = geoInfoModel.create(req.body);
 
   //response sent when client hits endpoint

@@ -9,8 +9,10 @@ let newDate = d.getMonth() + 1 + "." + d.getDate() + "." + d.getFullYear();
 const express = require("express");
 
 const app = express();
+const myRoutes = require("./routes/geoInfo.routes");
+app.use("/myroutes", myRoutes);
 
-app.get("/", (req, resp) => {
+app.post("/", (req, resp) => {
   //   resp.send("Hello World");
   resp.json({ 0: "Hello World!", 1: "Hello Again", 2: "Hello Hello" });
 });
@@ -55,6 +57,9 @@ async function findInfo(req, resp) {
     console.log("getWeather: error\n", error);
   }
 }
+
+module.exports = app;
+
 //NOTES:
 //http://api.geonames.org/findNearbyPostalCodesJSON?postalcode=8775&country=CH&radius=10&username=sunnycodes
 //api.geonames.org/findNearbyPostalCodesJSON?placename=Toronto&radius=10&username=sunnycodes
