@@ -16,6 +16,10 @@ const geoInfoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  population: {
+    type: Number,
+    required: true,
+  },
 });
 
 //collection in db will be called geoInfo

@@ -5,11 +5,19 @@ const test_data = require("../../mock-data/new-geoInfo.json");
 const endPointUrl = "/myroutes/";
 
 describe(endPointUrl, () => {
+  afterAll(async () => {
+    await connection.close();
+    // await db.close();
+    db.disconnect();
+  });
   it("POST " + endPointUrl, async () => {
     const response = await request(app).post(endPointUrl).send(test_data);
+    //console.log("integration test response ...", response);
+
     expect(response.statusCode).toBe(201);
-    expect(response.latitude).toBe(test_data.latitude);
-    expect(response.longitude).toBe(test_data.longitude);
+    expect(response.body.country).toBe(test_data.country);
+    expect(response.body.longitude).toBe(test_data.longitude);
+    expect(response.body.population).toEqual(test_data.population);
   });
 });
 

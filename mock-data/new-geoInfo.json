@@ -1,7 +1,9 @@
 {
-      "place": "Test City, Test Province",
+      "place": "Serge, SAP MASTER",
       "latitude": 43.672276,
       "longitude":
         -79.28744,
-      "country": "CA"
+      "country": "CA",
+      "population": 1010
+    
 }

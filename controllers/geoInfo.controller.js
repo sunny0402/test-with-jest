@@ -1,7 +1,7 @@
 const geoInfoModel = require("../model/geoInfo.model");
-exports.createGeoInfo = (req, resp, next) => {
+exports.createGeoInfo = async (req, resp, next) => {
   //create new entry in MongoDB with the incoming request data
-  const createdModel = geoInfoModel.create(req.body);
+  const createdModel = await geoInfoModel.create(req.body);
 
   //response sent when client hits endpoint
   // resp.status(201).send();
