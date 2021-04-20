@@ -24,11 +24,6 @@ app.use("/myroutes", myRoutes);
 //   resp.json({ 0: "Hello World!", 1: "Hello Again", 2: "Hello Hello" });
 // });
 
-// supertest launches app
-// app.listen(3030, () => {
-//   console.log("server is now running");
-// });
-
 //POST route: will receive input from client
 // app.get("/geoNamesReq", findInfo);
 // app.get("/geoNamesReq", findInfo);

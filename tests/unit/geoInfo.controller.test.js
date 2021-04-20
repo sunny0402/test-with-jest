@@ -13,7 +13,8 @@ beforeEach(() => {
   //create mock request response objects which come with Express endpoint
   req = httpMocks.createRequest();
   resp = httpMocks.createResponse();
-  next = null;
+  //with jest.fn() can spy on method and see what it is being called with
+  next = jest.fn();
 });
 
 describe("geoInfoController.createGeoInfo", () => {
@@ -48,5 +49,13 @@ describe("geoInfoController.createGeoInfo", () => {
 
     //make test fail uncomment below
     //expect(resp._getJSONData()).toEqual(newData1);
+  });
+
+  it("should handle errors", async () => {
+    const errorMessage = { message: "a property missing." };
+    const rejectedPromise = Promise.reject(errorMessage);
+    geoInfoModel.createGeoInfo.mockResponseValue(rejectedPromise);
+    await geoInfoController.createGeoInfo(req, resp, next);
+    expect(next).toBeCalledWith(errorMessage);
   });
 });
